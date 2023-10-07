@@ -1,0 +1,16 @@
+#!name = 百度文库解锁
+#!desc = 非一次性解锁，每次使用需要先启用此插件，再进入应用方可解锁，解锁成功后支持版本升级。
+#!openUrl = https://apps.apple.com/app/id426340811
+#!author =  Sweet510
+#!homepage = https://gitlab.com/isous/loonresource/-/tree/main/Plugin
+#!icon = https://gitlab.com/isous/loonresource/-/raw/main/Icon/BaiduWenku.png
+#!date = 2023-10-07 16:39:24
+
+[Rewrite]
+^https:\/\/appwk\.baidu\.com\/(naapi\/(recommend\/recommenddoc|wkcircle\/messagetab|search\/wkhotwords|api\/wmadopt)|appapi\/(search\/hot|donate\/detail)|xpage\/interface\/wknaad) reject
+
+[Script]
+http-response ^https:\/\/appwk\.baidu\.com\/naapi\/(user\/getinfo|doc\/getdocdownloadcopywriter) script-path = https://gitlab.com/isous/loonresource/-/raw/main/Script/BaiduWenku/BaiduWenku_crack.js, requires-body = true, tag = 百度文库解锁
+
+[Mitm]
+hostname = appwk.baidu.com
