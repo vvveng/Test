@@ -1,4 +1,4 @@
-#!name = 百度文库解锁
+#!name = wenku解锁
 #!desc = 非一次性解锁，每次使用需要先启用此插件，再进入应用方可解锁，解锁成功后支持版本升级。
 #!openUrl = https://apps.apple.com/app/id426340811
 #!author =  Sweet510
