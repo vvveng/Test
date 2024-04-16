@@ -1,6 +1,6 @@
 const Name = 'Videoget';
 const url = $request.url;
-const regex = /(?<=accounts\/)[^\/]+/;
+const regex = /[^\n]+mp4[^\n]*/;
 const match = url.match(regex);
 const VIDEO = {};
 VIDEO.need = match[0];
