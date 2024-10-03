@@ -1,8 +1,6 @@
 -- Rime Lua 扩展 https://github.com/hchunhui/librime-lua
 -- 文档 https://github.com/hchunhui/librime-lua/wiki/Scripting
 
--- 计算器，自己新增
--- calculator_translator = require("calculator_translator")
 -- processors:
 
 -- 以词定字，可在 default.yaml → key_binder 下配置快捷键，默认为左右中括号 [ ]
@@ -52,8 +50,8 @@ long_word_filter = require("long_word_filter")
 -- 在 engine/filters 增加 - lua_filter@cn_en_spacer
 cn_en_spacer = require("cn_en_spacer")
 
--- 英文词条上屏自动空格
--- 在 engine/filters 增加 - lua_filter@en_spacer
+-- 英文词条上屏自动添加空格
+-- 在 engine/filters 的倒数第二个位置，增加 - lua_filter@en_spacer
 en_spacer = require("en_spacer")
 
 -- 九宫格，将输入框的数字转为对应的拼音或英文，iRime 用，Hamster 不需要。
@@ -67,15 +65,15 @@ t9_preedit = require("t9_preedit")
 -- is_in_user_dict: false    为未输入过的内容加星号
 is_in_user_dict = require("is_in_user_dict")
 
--- 词条隐藏、降频(此处已修改)
+-- 词条隐藏、降频
 -- 在 engine/processors 增加 - lua_processor@cold_word_drop_processor
 -- 在 engine/filters 增加 - lua_filter@cold_word_drop_filter
 -- 在 key_binder 增加快捷键：
 -- turn_down_cand: "Control+j"  # 匹配当前输入码后隐藏指定的候选字词 或候选词条放到第四候选位置
 -- drop_cand: "Control+d"       # 强制删词, 无视输入的编码
 -- get_record_filername() 函数中仅支持了 Windows、macOS、Linux
-cold_word_drop_processor = require("cold_word_drop")
--- cold_word_drop_filter = require("cold_word_drop.filter")
+cold_word_drop_processor = require("cold_word_drop.processor")
+cold_word_drop_filter = require("cold_word_drop.filter")
 
 
 -- 暴力 GC
